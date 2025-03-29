@@ -3,43 +3,92 @@ import Profile from './assets/portfolioprofile.jpg'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useTheme } from "@mui/material/styles";
+import MenuIcon from '@mui/icons-material/Menu';
+import { useState } from 'react';
 
 function App() {
   const theme = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
+
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsOpen(false); 
+  };
+
   return (
     <>
       <div className='w-screen min-h-screen relative bg-linear-80 from-[#474243]/90 to-[#c17480]/90 overflow-x-hidden'>
-      <nav className="flex justify-between items-center pt-8 text-[1.2rem]">
-        <ul className="pl-5">
-          <li className="text-3xl font-extrabold text-[#FFC0CB]">KirstenAshleyM</li>
+      <nav className="flex justify-between items-center pt-8 max-sm:pt-2 text-[1.2rem]">
+        <ul className="pl-5 max-sm:pl-0">
+          <li className="text-3xl font-extrabold  max-sm:text-2xl bg-gradient-to-b from-white to-[#c17480] bg-clip-text text-transparent">KirstenAshleyM</li>
         </ul>
-        <ul className="flex gap-3 pr-5">
-          <li className="text-white">Projects</li>
-          <li className="text-white">About Me</li>
-          <li className="text-white">Contact</li>
+        <ul className="flex gap-3 pr-5 max-sm:hidden">
+          <li className="text-white cursor-pointer" onClick={() => scrollToSection("project")}>Projects</li>
+          <li className="text-white cursor-pointer" onClick={() => scrollToSection("about")}>About Me</li>
+          <li className="text-white cursor-pointer" onClick={() => scrollToSection("contact")}>Contact</li>
         </ul>
+
+        <button  onClick={() => setIsOpen(true)} className='lg:hidden'>
+          <MenuIcon className="text-white lg:hidden" sx={{fontSize: "2em"}} />
+          
+        </button>
+
+        <div
+        className={`fixed inset-0 bg-[#474243] bg-opacity-50 z-50 transition-opacity ${
+          isOpen ? "opacity-95 visible" : "opacity-0 invisible"
+        }`}
+        onClick={() => setIsOpen(false)}
+      ></div>
+
+<div
+        className={`fixed top-0 right-0 h-full w-64 bg-linear-80 from-[#474243]/90 to-[#c17480]/90 p-5 transform transition-transform ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        } z-50`}
+      >
+        <button  className="text-white text-3xl mb-5 relative bottom-[14px]" onClick={() => setIsOpen(false)}>
+          <MenuIcon sx={{fontSize: "1.3em"}} />
+        </button>
+        <ul className="flex flex-col gap-5 text-white">
+          <li className="cursor-pointer" onClick={() => {
+  setIsOpen(false);
+  scrollToSection("project");
+}}>Projects</li>
+          <li className="cursor-pointer" onClick={() => {
+  setIsOpen(false);
+  scrollToSection("about");
+}}>About Me</li>
+          <li className="cursor-pointer" onClick={() => {
+  setIsOpen(false);
+  scrollToSection("contact");
+}}>Contact</li>
+        </ul>
+      </div>
       </nav>
        
        <Container sx={{ paddingTop: "64px", [theme.breakpoints.down("xl")]: {
       margin: "0 auto",
       padding: "0"
     },  }}>
-        <Grid container spacing={2}  sx={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 2, 
+        <Grid container spacing={2}  sx={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 2, paddingTop: "3em",
          [theme.breakpoints.down("lg")]: {
       gridTemplateColumns: "1fr",
       width: "80%",
       margin: "0 auto",
-    },   [theme.breakpoints.down("xl")]: {
+    },   [theme.breakpoints.down("sm")]: {
       width: "100%",
       margin: "0 auto",
-      
+      paddingTop: 0
     },  }}>
-        <Grid item sx={{ [theme.breakpoints.down("lg")]: { gridRow: 2 } }}>
+        <Grid item sx={{ paddingTop: "3em", [theme.breakpoints.down("lg")]: { gridRow: 2 }, [theme.breakpoints.down("sm")]: { paddingTop: 0} }}>
           <Card sx={{ backgroundColor: "transparent", boxShadow: "none"}}>
             <CardContent sx={{[theme.breakpoints.down("lg")]: {
     display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"
   }}}>
-              <p className='text-6xl text-white max-lg:flex max-lg:justify-center max-lg:text-7xl max-sm:text-4xl'>Hi, I'm <span className='text-[#c17480]'>Kirsten</span></p>
+              <p className='text-6xl text-white max-lg:flex max-lg:justify-center max-lg:text-7xl max-sm:text-4xl'>Hi, I'm <span className='text-[#e494a0] ml-1'>Kirsten</span></p>
               <p className='text-4xl pt-2 text-white max-lg:flex max-lg:justify-center max-lg:text-5xl max-sm:text-2xl'>A Designer & Developer</p>
               <p className='text-white pt-1 max-lg:flex max-lg:justify-center max-lg:text-center max-sm:text-[14px] max-sm:text-justify max-sm:p-2'>Passionate about creating beautiful, functional digital experiences by blending design with development.</p>
               <Button sx={{background: "linear-gradient(80deg, rgba(71, 66, 67, 0.2), rgba(193, 116, 128, 0.9))", borderRadius: "5rem", color: "white", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", marginTop: "1rem",  textTransform: "none", [theme.breakpoints.down("lg")]: {
@@ -66,7 +115,7 @@ function App() {
 
       <section className='relative top-30 min-h-[50%]'>
        <Box sx={{background: "linear-gradient(80deg, rgba(255, 255, 250, 0.5), rgba(193, 116, 128, 0.9))", width: "14em", height: "3em", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: " 0 20px 20px 0", boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"}}>
-        <p className='text-[1.5rem] text-white'>PROJECTS</p></Box>
+        <p className='text-[1.5rem] text-white' id="project">PROJECTS</p></Box>
 
         <Container sx={{paddingTop: "3em", margin: "0"}}>
         <Grid container sx={{ display: "grid", gridTemplateColumns: "repeat(4,25%)", gap: 2,  [theme.breakpoints.down("lg")]: {
@@ -276,7 +325,7 @@ function App() {
 
        <section className='relative top-45 min-h-[50%]'>
        <Box sx={{background: "linear-gradient(80deg, rgba(255, 255, 250, 0.5), rgba(193, 116, 128, 0.9))", width: "14em", height: "3em", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: " 0 20px 20px 0", boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"}}>
-       <p className='text-[1.5rem] text-white'>ABOUT ME</p></Box>
+       <p className='text-[1.5rem] text-white' id="about">ABOUT ME</p></Box>
 
        <Container sx={{ background: "linear-gradient(132deg, rgba(253, 248, 246, 0.3), rgba(193, 116, 128, 0.9))", padding: "5em", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px;", position: "relative", top: "3em",  [theme.breakpoints.down("lg")]: {
        padding: "2rem",
@@ -290,7 +339,7 @@ With experience in WordPress, React, and front-end technologies, I focus on writ
 
        <section className='relative top-90 min-h-[50%]'>
        <Box sx={{background: "linear-gradient(80deg, rgba(255, 255, 250, 0.5), rgba(193, 116, 128, 0.9))", width: "14em", height: "3em", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: " 0 20px 20px 0", boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"}}>
-       <p className='text-[1.5rem] text-white'>CONTACT</p></Box>
+       <p className='text-[1.5rem] text-white' id="contact">CONTACT</p></Box>
 
        <Container>
        <Box sx={{justifyContent: "center", alignItems: "center", display: "flex", paddingTop: "2rem"}}>

@@ -19,6 +19,16 @@ function App() {
     setIsOpen(false); 
   };
 
+  const handleDownload = () => {
+    const resumeUrl = "./assets/KirstenAshleyM_FrontendDev_Resume.pdf"; 
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "KirstenAshleyM_FrontendDev_Resume.pdf"; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <>
       <div className='w-screen min-h-screen relative bg-linear-80 from-[#474243]/90 to-[#c17480]/90 overflow-x-hidden'>
@@ -91,7 +101,7 @@ function App() {
               <p className='text-6xl text-white max-lg:flex max-lg:justify-center max-lg:text-7xl max-sm:text-4xl'>Hi, I'm <span className='text-[#e494a0] ml-1'>Kirsten</span></p>
               <p className='text-4xl pt-2 text-white max-lg:flex max-lg:justify-center max-lg:text-5xl max-sm:text-2xl'>A Designer & Developer</p>
               <p className='text-white pt-1 max-lg:flex max-lg:justify-center max-lg:text-center max-sm:text-[14px] max-sm:text-justify max-sm:p-2'>Passionate about creating beautiful, functional digital experiences by blending design with development.</p>
-              <Button sx={{background: "linear-gradient(80deg, rgba(71, 66, 67, 0.2), rgba(193, 116, 128, 0.9))", borderRadius: "5rem", color: "white", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", marginTop: "1rem",  textTransform: "none", [theme.breakpoints.down("lg")]: {
+              <Button onClick={handleDownload} sx={{background: "linear-gradient(80deg, rgba(71, 66, 67, 0.2), rgba(193, 116, 128, 0.9))", borderRadius: "5rem", color: "white", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", marginTop: "1rem",  textTransform: "none", [theme.breakpoints.down("lg")]: {
     padding: "12px", fontSize: "1.1rem"
   }, [theme.breakpoints.down("sm")]: {
     padding: "8px", fontSize: "14px", width: "90%"
@@ -385,7 +395,7 @@ With experience in WordPress, React, and front-end technologies, I focus on writ
       flexDirection: "column-reverse",
       gap: 2
       },}}>
-            <p className='text-white'>kirstenashleym/vercel.com</p> 
+            <p className='text-white'>https://kirstenashleym.vercel.app/</p> 
           <div className='flex justify-center items-center relative bottom-2 max-sm:bottom-0'>
           <a href="https://www.linkedin.com/in/kirsten-ashley-magpantay-43079a212/"><LinkedInIcon sx={{ fontSize: "32px", color: "white" }}/></a>
           <a href= "https://github.com/i252-hub"><GitHubIcon sx={{ fontSize: "32px" , color: "white"}}/></a></div></Box>

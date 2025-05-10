@@ -22,10 +22,10 @@ function App() {
   };
 
   const handleDownload = () => {
-    const resumeUrl = "./assets/KirstenAshleyM_FrontendDev_Resume.pdf"; 
+    const resumeUrl = "./assets/KirstenAshleyM_UXUIDesigner_Resume.pdf"; 
     const link = document.createElement("a");
     link.href = resumeUrl;
-    link.download = "KirstenAshleyM_FrontendDev_Resume.pdf"; 
+    link.download = "KirstenAshleyM_UXUIDesigner_Resume.pdf"; 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

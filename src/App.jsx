@@ -299,7 +299,7 @@ function App() {
        padding: "2rem",
       
       }, }}>
-        <p className='text-white'>I’m Kirsten, a Full Stack developer with a strong background in WordPress and React. My journey began as a WordPress developer, where I built dynamic, user-friendly websites using plugins, custom fields, and backend development to extend functionality and optimize performance. As I gained experience, I transitioned into React development, focusing on creating interactive, high-performance web applications.
+        <p className='text-white'>I’m Kirsten, a Full Stack developer with a strong background in WordPress and PHP. My journey began as a WordPress developer, where I built dynamic, user-friendly websites using plugins, custom fields, and backend development to extend functionality and optimize performance. As I gained experience, I transitioned into React development, focusing on creating interactive, high-performance web applications.
 
 With a deep understanding of both WordPress and React, I specialize in developing responsive, efficient websites and applications that prioritize user experience. I work with both frontend interfaces and backend systems to ensure seamless functionality and smooth user interactions. Whether working with content-driven WordPress sites or modern React applications, I focus on delivering solutions that meet business goals.</p>
        </Container>

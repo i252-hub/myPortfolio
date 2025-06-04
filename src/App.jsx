@@ -22,10 +22,10 @@ function App() {
   };
 
   const handleDownload = () => {
-    const resumeUrl = "./assets/KirstenAshleyM_Dev_Resume.pdf"; 
+    const resumeUrl = "./assets/KirstenAshleyM__Resume.pdf"; 
     const link = document.createElement("a");
     link.href = resumeUrl;
-    link.download = "KirstenAshleyM_Dev_Resume.pdf"; 
+    link.download = "KirstenAshleyM__Resume.pdf"; 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -299,9 +299,9 @@ function App() {
        padding: "2rem",
       
       }, }}>
-        <p className='text-white'>I’m Kirsten, a Full Stack developer with a strong background in WordPress and PHP. My journey began as a WordPress developer, where I built dynamic, user-friendly websites using plugins, custom fields, and backend development to extend functionality and optimize performance. As I gained experience, I transitioned into React development, focusing on creating interactive, high-performance web applications.
+        <p className='text-white'>I’m Kirsten, a Full Stack Developer with a strong focus on WordPress. I specialize in building custom themes and plugins, working extensively with PHP, ACF, and custom post types to create flexible, responsive websites. My experience includes backend development for performance optimization, third-party API integration, and tailoring the WordPress REST API to fit project needs. 
 
-With a deep understanding of both WordPress and React, I specialize in developing responsive, efficient websites and applications that prioritize user experience. I work with both frontend interfaces and backend systems to ensure seamless functionality and smooth user interactions. Whether working with content-driven WordPress sites or modern React applications, I focus on delivering solutions that meet business goals.</p>
+On the frontend, I develop responsive, user-friendly interfaces and work with the Gutenberg editor to create custom blocks that enhance the content management experience. I also have deep experience with WooCommerce, building and customizing online stores with advanced product logic, payment gateways, and optimized checkout flows. I bring strong UX/UI and design skills to every project, ensuring that the user experience is not only functional but also visually intuitive and engaging.</p>
        </Container>
        </section>
 
